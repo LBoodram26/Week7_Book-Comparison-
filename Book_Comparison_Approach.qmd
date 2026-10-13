@@ -1,0 +1,61 @@
+---
+title: "Week7_Book_Comparison_Approach"
+format: html
+editor: visual
+---
+
+## DATA 607 – Week 7: Working with HTML and JSON
+
+Approach
+
+## Introduction
+
+In this assignment, I will work with HTML and JSON files in order to acquire knowledge about how similar information can be presented in different file formats. The two files will be created by me using the information taken from three books I selected: It Ends with Us, The Silent Patient, and The Wife Between Us. The reason why I chose these three books is that they discuss relationships, secrets, and personal challenges.
+
+The goal is to import the data from both files into R, create separate data frames, and see if the data is the same.
+
+## Step 1: Select Books and Collect Information
+
+I will use three books for this assignment, including The Wife Between Us, which was written by two authors. For each book, I will collect the title, author(s), publication year, publisher, and genre. This will provide five attributes that can be compared across both file formats.
+
+## Step 2: Create HTML and JSON Files
+
+I will manually create an HTML file named books.html containing a table with the selected book information. I will also create a JSON file named books.json using the same data.
+
+Both files will contain identical information but use different structures to organize it. Once completed, I will upload them to a public GitHub repository so they can be accessed directly from the web.
+
+## Step 3: Import Data into R
+
+I will use RStudio and the rvest package to read the HTML file and extract the book information into a data frame.
+
+For the JSON file, I will use the jsonlite package to import the records into a separate data frame.
+
+Both files will be accessed through their GitHub URLs rather than local file paths. This will allow the analysis to be reproduced without requiring the original files to be stored on another computer.
+
+## Step 4: Compare the Data Frames
+
+After importing both files, I will use the identical() function in R to compare the data frames.
+
+I will verify the correspondence among the book information, the column names, the data types, and the composition of the data frames as a whole.
+
+If the outcome is TRUE, this will prove that the data frames can be considered the same.
+
+If the outcome is FALSE, I will analyze the differences to determine what needs to be corrected.
+
+## Step 5: Document and Publish Results
+
+I will use Quarto to organize my R code, explanations, and comparison results into one document. After completing the analysis, I will render the document into HTML and publish it to RPubs.
+
+I will also provide the GitHub repository containing the HTML and JSON data files along with the Quarto source code.
+
+## Expected Outcome
+
+I think both data frames should have the same data, but the original files are different formats. This task is useful for me as it provides me with the opportunity to learn the ways of saving data in HTML and JSON format, and the ways of using R to access and compare data from different sources.
+
+## References
+
+Wickham, H., Çetinkaya-Rundel, M., & Grolemund, G. (2023). R for Data Science (2nd ed.). O'Reilly Media. <https://r4ds.hadley.nz/>
+
+Wickham, H. rvest: Easily Harvest (Scrape) Web Pages. <https://cran.r-project.org/package=rvest>
+
+Ooms, J. jsonlite: A Robust, High Performance JSON Parser and Generator for R. <https://cran.r-project.org/package=jsonlite>
