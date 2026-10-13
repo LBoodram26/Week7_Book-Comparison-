@@ -1,0 +1,26 @@
+
+{
+  "books": [
+    {
+      "Title": "It Ends with Us",
+      "Authors": "Colleen Hoover",
+      "Year": 2016,
+      "Publisher": "Atria Books",
+      "Genre": "Contemporary Romance"
+    },
+    {
+      "Title": "The Silent Patient",
+      "Authors": "Alex Michaelides",
+      "Year": 2019,
+      "Publisher": "Celadon Books",
+      "Genre": "Psychological Thriller"
+    },
+    {
+      "Title": "The Wife Between Us",
+      "Authors": "Greer Hendricks; Sarah Pekkanen",
+      "Year": 2018,
+      "Publisher": "St. Martin's Press",
+      "Genre": "Psychological Thriller"
+    }
+  ]
+}
