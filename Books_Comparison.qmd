@@ -1,0 +1,109 @@
+---
+title: "HTML and JSON: Book Comparison"
+author: "Lakeranie Boodram"
+format: html
+editor: visual
+---
+
+## Introduction
+
+The assignment consists of learning how to use HTML and JSON files in R. The books chosen for this assignment are It Ends with Us, The Silent Patient, and The Wife Between Us, as these works share themes of relationships, secrets, and struggles.
+
+I created the HTML file and the JSON file in the same way using the same book data including title, authors, year, publisher, and genre information.
+
+In R, I will import both files in two separate data frames and compare them with each other.
+
+## Load Required Packages
+
+```{r}
+library(rvest)
+library(jsonlite)
+library(dplyr)
+
+```
+
+## Import HTML Data
+
+In this section, I will import the HTML file that I manually created with information about my three selected books. I will use the `rvest` package to read the HTML file and extract the table into an R data frame.
+
+```{r}
+# Read the HTML file from GitHub
+html_url <- "https://raw.githubusercontent.com/LBoodram26/Week7_Book-Comparison-/main/books.html"
+
+html_file <- read_html(html_url)
+
+# Extract the HTML table
+books_html <- html_file |>
+  html_element("table") |>
+  html_table()
+
+# Convert to a data frame
+books_html <- as.data.frame(books_html)
+
+# Display the HTML data
+print(books_html)
+
+```
+
+## Import JSON Data
+
+I will use the `jsonlite` package to import my JSON file directly from GitHub. The book records will be converted into a separate R data frame.
+
+```{r}
+# Read the JSON file from GitHub
+json_url <- "https://raw.githubusercontent.com/LBoodram26/Week7_Book-Comparison-/main/books.json"
+
+json_file <- fromJSON(json_url)
+
+# Convert to a data frame
+books_json <- as.data.frame(json_file$books)
+
+# Display the JSON data
+print(books_json)
+```
+
+## Compare HTML and JSON Data Frames
+
+In this section, I will compare the two data frames to determine whether they contain identical information. I will use the `identical()` function in R to check if both data frames have the same values, column names, data types, and structure.
+
+```{r}
+# Compare the two data frames
+comparison_result <- identical(books_html, books_json)
+
+# Display the comparison result
+print(comparison_result)
+
+# Check the structure of each data frame
+str(books_html)
+str(books_json)
+```
+
+### Comparison Results
+
+The comparison returned TRUE, which means that both data frames are identical. Each data frame contains three rows and five columns, and the information matches across both files.
+
+This shows that even though HTML and JSON organize data differently, they can produce the same results when imported into R.
+
+## Conclusion
+
+Two files were created manually with the use of HTML and JSON for recording information about three books for this project. Both files were uploaded on GitHub, and then R was used to transfer the data into separate data frames.
+
+The data frames were compared through the identical() function, and the outcome indicated TRUE, which dealt with both files having the same data, from the title of the books to their authors and publishing information.
+
+Working on this task provided me with insight into the issue of various file formats storing the same data as well as how R packages can be helpful for data manipulation and comparison.
+
+## References
+
+Wickham, H., Çetinkaya-Rundel, M., & Grolemund, G. (2023). *R for Data Science* (2nd ed.). O'Reilly Media. <https://r4ds.hadley.nz/>
+
+R Core Team. (2026). *R: A language and environment for statistical computing*. R Foundation for Statistical Computing. <https://www.r-project.org/>
+
+Ooms, J. (n.d.). *jsonlite: A robust, high performance JSON parser and generator for R*. <https://cran.r-project.org/package=jsonlite>
+
+Wickham, H. (n.d.). *rvest: Easily harvest (scrape) web pages*. <https://cran.r-project.org/package=rvest>
+
+## Data Sources
+
+The HTML and JSON files used in this assignment are available in my public GitHub repository:
+
+<https://github.com/LBoodram26/Week7_Book-Comparison->
